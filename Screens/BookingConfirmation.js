@@ -11,7 +11,8 @@ import {
     TextInput,
 } from 'react-native';
 
-export default function App() {
+export default function BookingConfirmation(props) {
+    const {navigation} = props; 
     return (
         <View style={styles.container}>
             <View style={styles.head}>
@@ -26,7 +27,9 @@ export default function App() {
                 <Text style={styles.txtChucMung}>Congratulations!</Text>
                 <Text style={styles.txtChucMung2}>Your booking has been confirmed</Text>
             </View>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => {
+                        navigation.navigate("Home")
+                    }}>
                     <View style={styles.bookNow}>
                         <Text style={styles.textBookNow}>Go back to Home</Text>
                     </View>

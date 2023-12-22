@@ -1,6 +1,4 @@
 import { StatusBar } from 'expo-status-bar';
-import { Shadow } from 'react-native-shadow-2';
-
 import {
     StyleSheet,
     Text,
@@ -11,7 +9,8 @@ import {
     TextInput,
 } from 'react-native';
 
-export default function App() {
+export default function BookingDetails(props) {
+    const {navigation} = props;
     return (
         <View style={styles.container}>
             <View style={styles.head}>
@@ -102,7 +101,9 @@ export default function App() {
                         />
                     </View>
                 </View>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => {
+                        navigation.navigate("PaymentCheckout")
+                    }} >
                     <View style={styles.bookNow}>
                         <Text style={styles.textBookNow}>Book Now</Text>
                     </View>
@@ -149,7 +150,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         height: 60,
-        // backgroundColor: 'red',
+        backgroundColor: 'white',
         elevation: 2,
     },
     iconUser: {

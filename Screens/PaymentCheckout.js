@@ -11,7 +11,8 @@ import {
     TextInput,
 } from 'react-native';
 
-export default function App() {
+export default function PaymentCheckout(props) {
+    const {navigation} = props; 
     return (
         <View style={styles.container}>
             <View style={styles.head}>
@@ -65,7 +66,9 @@ export default function App() {
                     </View>
                 </TouchableOpacity>
 
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => {
+                        navigation.navigate("BookingConfirmation")
+                    }} >
                     <View style={styles.txtName}>
                         <View style={styles.khoi}>
                             <Image

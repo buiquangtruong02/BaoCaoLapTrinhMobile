@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { View, Image, FlatList, TouchableOpacity, StyleSheet, Text } from 'react-native';
+import { View, Image, FlatList, TouchableOpacity, StyleSheet, Text, TextInput } from 'react-native';
 
 const StarList = () => {
     const [selectedStar, setSelectedStar] = useState(null);
@@ -45,6 +45,14 @@ const App = () => {
     return (
         <View style={styles.container}>
             <View style={styles.head}>
+                <TouchableOpacity onPress={() => {
+                    navigation.goBack()
+                }}>
+                    <Image
+                        source={require('../assets/iconTroVe.png')}
+                        style={styles.iconTroVe}
+                    />
+                </TouchableOpacity>
                 <Text style={styles.title}>Write A Review</Text>
             </View>
             <View style={styles.noidung}>
@@ -54,8 +62,14 @@ const App = () => {
                 <View style={styles.txtChamSao}>
                     <Text >Tap a star to rate</Text>
                 </View>
+                <View style={styles.textReview}>
+                    <TextInput
+                        placeholder="Review..."
+                    />
+                </View>
             </View>
             <StatusBar style="auto" />
+
         </View>
     );
 };
@@ -81,7 +95,7 @@ const styles = StyleSheet.create({
     noidung: {
         marginTop: 20,
         width: 335,
-        height: 60, 
+        height: 60,
     },
     starImage: {
         width: 25,
@@ -95,7 +109,20 @@ const styles = StyleSheet.create({
     txtChamSao: {
         alignItems: 'center',
         fontSize: 23,
-    }
+    },
+    textReview: {
+        marginTop: 15,
+        height: 217,
+        width: 335,
+        backgroundColor: 'white', // You might need to set a background color for elevation to be visible
+        padding: 10, // Add padding for better appearance
+        borderRadius: 8, // Add border radius for a rounded appearance
+    },
+    iconTroVe: {
+        marginLeft: 15,
+        marginTop: 25,
+    },
+
 });
 
 export default App;

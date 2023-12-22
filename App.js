@@ -1,32 +1,49 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createStackNavigator } from '@react-navigation/stack';
 
-// import OnBoarding from './screens/OnBoarding';
-// import LandingScreen from './screens/LandingScreen';
-// import Register from './screens/Register';
-// import Login from './screens/Login';
-// import ktra0910 from './screens/ktra0910';
+import BookingDetails from './Screens/BookingDetails';
 import PaymentCheckout from './Screens/PaymentCheckout';
-import BookingConfirmation from './Screens/BookingConfirmation'; 
-import StarList from './Screens/StarList'; 
-import WriteAReview from './Screens/WriteAReview'; 
+import BookingConfirmation from './Screens/BookingConfirmation';
+import StarList from './Screens/StarList';
+import WriteAReview from './Screens/WriteAReview';
+import Profile from './Screens/Profile';
+import Home from './Screens/Home';
+import Onboarding from './Screens/Onboarding';
+import Register from './Screens/Register';
+import Login from './Screens/Login';
+import AfterSearch from './Screens/AfterSearch';
+import TopHotel from './Screens/TopHotel';
+import Wishlist from './Screens/Wishlist';
+import HotelDescription from './Screens/HotelDescription';
+import Reviews from './Screens/Reviews';
 
-const Stack = createNativeStackNavigator();
 
-export default function App() {
+
+const Stack = createStackNavigator();
+
+const MainStackNavigator = () => {
   return (
-    // <Login />
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Register' screenOptions={{ headerShown: false }}>
-         {/* <Stack.Screen name="LandingScreen" component={LandingScreen} /> */}
-        {/* <Stack.Screen name="Register" component={Register} /> */}
-        {/* <Stack.Screen name="Login" component={Login} /> */}
-        {/* <Stack.Screen name="PaymentCheckout" component={PaymentCheckout} /> */}
-        {/* <Stack.Screen name="BookingConfirmation" component={BookingConfirmation} /> */}
-        {/* <Stack.Screen name="StarList" component={StarList} /> */}
+      <Stack.Navigator initialRouteName="Onboarding" screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="Onboarding" component={Onboarding} />
+        <Stack.Screen name="Register" component={Register} />
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="AfterSearch" component={AfterSearch} />
+        <Stack.Screen name="TopHotel" component={TopHotel} />
+        <Stack.Screen name="Wishlist" component={Wishlist} />
+        <Stack.Screen name="PaymentCheckout" component={PaymentCheckout} />
+        <Stack.Screen name="BookingConfirmation" component={BookingConfirmation} />
+        <Stack.Screen name="StarList" component={StarList} />
+        <Stack.Screen name="BookingDetails" component={BookingDetails} />
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Profile" component={Profile} /> 
+        <Stack.Screen name="HotelDescription" component={HotelDescription} />
+        <Stack.Screen name="Reviews" component={Reviews} />
         <Stack.Screen name="WriteAReview" component={WriteAReview} />
       </Stack.Navigator>
-    </NavigationContainer >
-  )
+    </NavigationContainer>
+  );
 }
+
+export default MainStackNavigator;
